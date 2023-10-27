@@ -21,9 +21,9 @@ type (
 		User           Users            `gorm:"foreignKey:UserId"`
 		OrderedAt      time.Time        `json:"orderedAt" gorm:"column:ordered_at;default:current_timestamp"`
 		DeliveredAt    time.Time        `json:"deliveredAt" gorm:"column:delivered_at"`
-		AddressId      uuid.UUID        `json:"addressId"`
+		AddressId      uuid.UUID        `json:"addressId" gorm:"address_id"`
 		ProductOrdered []ProductOrdered `gorm:"foreignKey:OrderId;references:Id"`
-		Address        Address          `gorm:"column:addressId;foreignKey:AddressId"`
+		Address        Address          `gorm:"column:address_id;foreignKey:address_id"`
 		Cost           int              `json:"cost" gorm:"column:cost"`
 		DeliveryStatus DeliveryStatus   `json:"deliveryStatus" gorm:"column:delivery_status;type:delivery_status"`
 		CreatedAt      time.Time        `json:"createdAt" gorm:"column:created_at;default:current_timestamp"`

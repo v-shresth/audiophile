@@ -13,13 +13,14 @@ import (
 
 func main() {
 	done := make(chan os.Signal)
+	var err error
 	signal.Notify(done, os.Interrupt)
 
-	err := utils.LoadEnv()
-	if err != nil {
-		logrus.Errorf("Environment variables loading failed.; %s", err.Error())
-		return
-	}
+	//err := utils.LoadEnv()
+	//if err != nil {
+	//	logrus.Errorf("Environment variables loading failed.; %s", err.Error())
+	//	return
+	//}
 
 	models.FirebaseClient, err = utils.GetFirebaseClient()
 	if err != nil {
